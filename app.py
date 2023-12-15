@@ -1,7 +1,7 @@
 import streamlit as st 
 import pandas as pd
 
-df = pd.read_csv('https://raw.githubusercontent.com/gauravyogesh/Track/main/saved.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/gauravyogesh/raspiTrack/main/slots.csv')
 
 filled_space =  df['Status'].values.sum()
 empty_space = len(df) -  filled_space
