@@ -1,13 +1,38 @@
-import streamlit as st 
+import streamlit as st
 import pandas as pd
+from sqlalchemy import create_engine
 
-df = pd.read_csv('https://raw.githubusercontent.com/gauravyogesh/raspiTrack/main/slots.csv')
+# Replace with your PostgreSQL database connection URI
+DATABASE_URI = 'postgresql://data_puppy_user:z54o9ZMvBRHaxqbK9kfXqd9KIwZVREja@dpg-cm1uq8fqd2ns73d6ed8g-a.oregon-postgres.render.com/data_puppy'
+# Create a database engine
+engine = create_engine(DATABASE_URI)
 
-filled_space =  df['Status'].values.sum()
-empty_space = len(df) -  filled_space
+# Function to fetch data from the database
+def fetch_data():
+    query = 'SELECT * FROM puppies'
+    df = pd.read_sql(query, engine)
+    return df
 
-st.header("Occupency Table")
-st.dataframe(df)
+# Main Streamlit app
+def main():
+    st.title('Puppies Database Viewer')
 
-st.text(f"Occuped space {filled_space}.")
-st.text(f"Available space {empty_space}.")
+    # Fetch data from the database
+    data = fetch_data()
+
+    # Display the data in a table
+    st.dataframe(data)
+
+if _name_ == '_main_':
+    main()
+
+
+
+#filled_space =  df['Status'].values.sum()
+#empty_space = len(df) -  filled_space
+
+#st.header("Occupency Table")
+#st.dataframe(df)
+
+#st.text(f"Occuped space {filled_space}.")
+#st.text(f"Available space {empty_space}.")
