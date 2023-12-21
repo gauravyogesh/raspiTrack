@@ -23,7 +23,7 @@ def main():
     # Display the data in a table
     st.dataframe(data)
 
-if _name_ == '_main_':
+if __name__ == '__main__':
     main()
 
 
