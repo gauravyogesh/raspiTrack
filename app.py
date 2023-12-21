@@ -21,7 +21,7 @@ def main():
     data = fetch_data()
 
     # Display the data in a table
-    st.dataframe(data)
+    st.table(data)
 
 if __name__ == '__main__':
     main()
