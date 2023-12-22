@@ -9,7 +9,7 @@ engine = create_engine(DATABASE_URI)
 
 # Function to fetch data from the database
 def fetch_data():
-    query = 'SELECT * FROM your_table'
+    query = 'SELECT * FROM puppies'
     df = pd.read_sql(query, engine)
     return df
 
