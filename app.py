@@ -15,24 +15,16 @@ def fetch_data():
 
 # Main Streamlit app
 def main():
-    st.title('Puppies Database Viewer')
-
+    st.title('Parking slot Information')
+    filled_space =  df['Slots'].values.sum()
+    empty_space = len(df) -  filled_space
     # Fetch data from the database
     data = fetch_data()
+    st.text(f"Occuped space {filled_space}.")
+    st.text(f"Available space {empty_space}.")
 
     # Display the data in a table
     st.dataframe(data, hide_index=True)
 
 if __name__ == '__main__':
     main()
-
-
-
-#filled_space =  df['Status'].values.sum()
-#empty_space = len(df) -  filled_space
-
-#st.header("Occupency Table")
-#st.dataframe(df)
-
-#st.text(f"Occuped space {filled_space}.")
-#st.text(f"Available space {empty_space}.")
