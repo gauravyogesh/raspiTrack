@@ -15,11 +15,11 @@ def fetch_data():
 
 # Main Streamlit app
 def main():
-    st.title('Parking slot Information')
-    filled_space =  df['Slots'].values.sum()
-    empty_space = len(df) -  filled_space
-    # Fetch data from the database
     data = fetch_data()
+    st.title('Parking slot Information')
+    filled_space =  data['Slots'].values.sum()
+    empty_space = len(data) -  filled_space
+    # Fetch data from the database
     st.text(f"Occuped space {filled_space}.")
     st.text(f"Available space {empty_space}.")
 
