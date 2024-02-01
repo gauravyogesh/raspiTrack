@@ -20,7 +20,7 @@ def main():
     filled_space =  data['Slots'].values.sum()
     empty_space = len(data) -  filled_space
     # Fetch data from the database
-    st.text(f"Occuped space {filled_space}.")
+    st.text(f"Occuped space hi {filled_space}.")
     st.text(f"Available space {empty_space}.")
 
     # Display the data in a table
